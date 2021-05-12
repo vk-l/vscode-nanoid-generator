@@ -1,0 +1,61 @@
+{
+  "name": "nanoid-generator",
+  "displayName": "Nanoid generator",
+  "description": "Nanoid generator",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.56.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:nanoid-generator.generate",
+    "onCommand:nanoid-generator.clipboard"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Nanoid generator: configuration",
+      "properties": {
+        "nanoid-generator.length": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 36,
+          "default": 10,
+          "description": "Length of the 'nanoid' to be generated."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "nanoid-generator.generate",
+        "title": "Insert a new 'nanoid'"
+      },
+      {
+        "command": "nanoid-generator.clipboard",
+        "title": "Copy a new 'nanoid' to clipboard"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.56.0",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "nanoid": "^3.1.23"
+  }
+}
