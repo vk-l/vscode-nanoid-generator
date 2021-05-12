@@ -1,7 +1,7 @@
 {
   "name": "nanoid-generator",
   "displayName": "Nanoid generator",
-  "description": "Nanoid generator",
+  "description": "Utility extension to use 'nanoid' in visual studio code",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.56.0"
@@ -9,6 +9,7 @@
   "categories": [
     "Other"
   ],
+  "icon": "icon.png",
   "activationEvents": [
     "onCommand:nanoid-generator.generate",
     "onCommand:nanoid-generator.clipboard"
