@@ -26,6 +26,11 @@
           "maximum": 36,
           "default": 10,
           "description": "Length of the 'nanoid' to be generated."
+        },
+        "nanoid-generator.alphabet": {
+          "type": "string",
+          "default": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-",
+          "description": "Alphabet of the 'nanoid' to be generated."
         }
       }
     },
