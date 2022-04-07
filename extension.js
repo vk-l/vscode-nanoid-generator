@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
-const { nanoid } = require("nanoid");
+const { customAlphabet } = require("nanoid");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -25,7 +25,9 @@ function activate(context) {
       // Display a message box to the user
       let config = vscode.workspace.getConfiguration("nanoid");
       let nanoIdLength = config.get("length", 10);
-      vscode.env.clipboard.writeText(nanoid(nanoIdLength));
+      let nanoIdAlphabet = config.get("alphabet", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-");
+      const nanoid = customAlphabet(nanoIdAlphabet, nanoIdLength);
+      vscode.env.clipboard.writeText(nanoid());
       vscode.commands.executeCommand("editor.action.clipboardPasteAction");
     })
   );
@@ -37,7 +39,9 @@ function activate(context) {
       // Display a message box to the user
       let config = vscode.workspace.getConfiguration("nanoid-generator");
       let nanoIdLength = config.get("length", 10);
-      vscode.env.clipboard.writeText(nanoid(nanoIdLength));
+      let nanoIdAlphabet = config.get("alphabet", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-");
+      const nanoid = customAlphabet(nanoIdAlphabet, nanoIdLength);
+      vscode.env.clipboard.writeText(nanoid());
       vscode.window.showInformationMessage("'nanoid' copied to clipboard");
     })
   );
